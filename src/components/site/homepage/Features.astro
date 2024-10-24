@@ -1,0 +1,61 @@
+---
+const features = [
+  {
+    title: "Сольні проєкти",
+    description:
+      "План для сольних проєктів ідеально підходить для фрилансерів, які працюють над проєктами самостійно",
+    icon: "person-outline",
+  },
+  {
+    title: "Командні проєкти",
+    description:
+      "План для команд ідеально підходить для малих груп, які працюють над кількома проєктами",
+    icon: "people-outline",
+  },
+  {
+    title: "Швидко та легко",
+    description: "Жодного надмірно ускладненого управління проєктами",
+    icon: "speedometer-outline",
+  },
+  {
+    title: "Режим мультиплеєра",
+    description: "Працюйте над проєктами разом з колегами",
+    icon: "globe-outline",
+  },
+];
+---
+
+<a id="features"></a>
+
+<div class="px-6 mx-auto mt-32 max-w-7xl sm:mt-56 lg:px-8">
+  <div class="max-w-2xl mx-auto lg:text-center">
+    <h2 class="text-xl font-semibold leading-7">Відправляйте швидше</h2>
+    <p class="mt-2 text-3xl font-bold tracking-tight sm:text-5xl">
+      Керуйте своїми проєктами продуктивніше
+    </p>
+    <p class="mt-6 text-lg leading-8">
+      Завдяки простому інтерфейсу та корисним функціям, SECRETPLAN – це
+      найкращий спосіб керувати вашими проєктами.
+    </p>
+  </div>
+
+  <div class="max-w-2xl mx-auto mt-16 sm:mt-20 lg:mt-24 lg:max-w-4xl">
+    <dl
+      class="max-w-xl grid grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
+    >
+      {
+        features.map((feature) => (
+          <div class="relative pl-16">
+            <dt class="text-base font-semibold leading-7">
+              <div class="absolute top-0 left-0 flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg text-white">
+                <ion-icon name={feature.icon} />
+              </div>
+              {feature.title}
+            </dt>
+            <dd class="mt-2 text-base leading-7">{feature.description}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</div>

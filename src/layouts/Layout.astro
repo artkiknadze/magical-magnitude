@@ -1,0 +1,32 @@
+---
+import Footer from "@components/site/common/Footer.astro";
+import TopBar from "@components/site/common/TopBar.astro";
+const { title = "SECRETPLAN" } = Astro.props;
+
+import '@src/site.css'
+
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>{title}</title>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </head>
+  <body class="dark:bg-black dark:text-white">
+    <div class="p-4 max-w-5xl mx-auto">
+      <TopBar />
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>
