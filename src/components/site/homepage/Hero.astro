@@ -3,7 +3,8 @@ import { getCollection } from "astro:content";
 let posts = await getCollection("blog");
 
 posts = posts.sort(
-  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
+  (a: any, b: any) =>
+    new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
 );
 ---
 
@@ -17,7 +18,8 @@ posts = posts.sort(
       <a
         href={`/blog/${posts[0].slug}`}
         class="px-4 py-2 text-sm rounded-full bg-zinc-800 text-zinc-200 font-semibold"
-      >Блог: {posts[0].data.title} &rarr;</a>
+        >Блог: {posts[0].data.title} &rarr;</a
+      >
     </div>
 
     <h1 class="text-4xl font-bold tracking-tight sm:text-6xl">

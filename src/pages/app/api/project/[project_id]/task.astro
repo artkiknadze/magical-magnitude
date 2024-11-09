@@ -1,0 +1,18 @@
+---
+export const partial = true;
+
+import { addTask, getProject } from "@data/pocketbase";
+
+const { project_id = "" } = Astro.params;
+
+const project = await getProject(project_id);
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const taskText = formData.get("task_text") as string;
+
+  await addTask(project_id, taskText);
+
+  Astro.response.headers.set("HX-Redirect", `/app/project/${project_id}`);
+}
+---
