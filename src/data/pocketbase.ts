@@ -51,6 +51,7 @@ export const getProject = async (id: string) => {
 export const addProject = async (name: string) => {
   const newProject = await pb.collection("projects").create({
     name,
+    created_by: pb.authStore.model?.id,
     status: "not started",
   });
 
@@ -70,6 +71,7 @@ export const updateProject = async (id: string, data: ProjectsRecord) => {
 export const addTask = async (project_id: string, text: string) => {
   const newTask = await pb.collection("tasks").create({
     project: project_id,
+    created_by: pb.authStore.model?.id,
     text,
   });
 
@@ -112,7 +114,7 @@ export const getStarredTasks = async () => {
 
   let tasks: TasksResponse<TexpandProject>[] = [];
   tasks = await pb.collection("tasks").getFullList(options);
-  
+
   return tasks;
 };
 
